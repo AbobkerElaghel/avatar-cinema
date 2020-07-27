@@ -38,7 +38,7 @@ class App extends React.Component{
 
   //Admin handle functions
   handleAdd(movieData) {
-    let token = localStorage.getItem('admin-auth-token')
+    let token = localStorage.getItem('admin-auth-token');
     axios.post('/api/movies', movieData)
     .then(res => {
       this.setState((prevState)=> {
@@ -54,7 +54,6 @@ class App extends React.Component{
   handleUpdate(movieId, newData) {
 
     let token = localStorage.getItem('admin-auth-token')
-    console.log(newData)
     axios.patch(`/api/movies/${movieId}`, newData, {
       headers: {
         'Authorization': 'Bearer ' + token

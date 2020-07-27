@@ -7,7 +7,7 @@ const temp = {
   margin: '30px 18px auto',
   padding: '10px 10px 0px 10px',
   color: 'white'
-}
+};
 
 class Daysbar extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Daysbar extends React.Component {
   }
   
   endDate(day, kind = 'day') { 
-    let currentDate = new Date()
+    let currentDate = new Date('1/13/2020');
     if(kind == 'day') return new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + day).getDate()
     else return new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + day).getMonth() + 1
   }
@@ -47,6 +47,11 @@ class Daysbar extends React.Component {
             {this.endDate(3) + " / " + this.endDate(3, 'month')}
           </NavLink>
         </NavItem>
+          <NavItem className='tabItem mx-2'>
+              <NavLink onClick={() => { this.props.pageShow(this.endDate(4)) }}>
+                  {this.endDate(4) + " / " + this.endDate(4, 'month')}
+              </NavLink>
+          </NavItem>
 
       </Nav> 
     ) 

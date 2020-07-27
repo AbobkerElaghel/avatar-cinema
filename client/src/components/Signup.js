@@ -76,7 +76,6 @@ class Signup extends Component {
           localStorage.setItem('x-auth-token', result.data.token)
           document.getElementById('alert').style.visibility = 'hidden'
           document.getElementById('alert').textContent = ''
-          console.log(result)
           this.props.changeUserState(true, result.data.user)
           return 
         }
@@ -100,7 +99,7 @@ class Signup extends Component {
         }
       })
       .catch(err => {
-        console.log(err)
+          throw err
       })
   }
 

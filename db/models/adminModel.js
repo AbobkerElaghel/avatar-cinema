@@ -62,6 +62,6 @@ const findAdmin = (objectCriteria = {}, callback = (err, data) => {}) => {
     Admin.findOne(objectCriteria)
         .then(admin => callback(null, admin))
         .catch(err => callback(err, null))
-}
+};
 module.exports.insertAdmin = insertAdmin;
 module.exports.findAdmin = findAdmin;

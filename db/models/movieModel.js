@@ -128,10 +128,11 @@ const deleteMovie = (objectId, callback = (err, result) => {}) => {
  * @param {function} callback Error-First Callback function
  */
 const getMovies4Days = callback => {
-    let currentDate = new Date(new Date().toLocaleDateString());
-    let endDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 4);
-    findMovies({ "playDate": { "$gte": currentDate, "$lt": endDate }, availability: true }, callback);
-}
+    // let currentDate = new Date(new Date().toLocaleDateString());
+    // let endDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 4);
+    findMovies({availability: true}, callback);
+    // findMovies( { "playDate": { "$gte": currentDate, "$lt": endDate }, availability: true }, callback);
+};
 
 
 /**
@@ -140,8 +141,8 @@ const getMovies4Days = callback => {
  * @param {function} callback Error-First Callback function
  */
 const getAllAvailableMovies = callback => {
-    findMovies({ availability: true }, callback);
-}
+    findMovies({}, callback);
+};
 
 /**
  * this @function findMovies well search the database for movies according to the Criteria given in the firstParam
@@ -154,7 +155,7 @@ const findMovies = (objectCriteria = {}, callback) => {
     Movie.find(objectCriteria)
         .then(movies => callback(null, movies))
         .catch(err => callback(err, null))
-}
+};
 
 
 module.exports.getAllAvailableMovies = getAllAvailableMovies;

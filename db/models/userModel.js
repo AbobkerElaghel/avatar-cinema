@@ -59,13 +59,14 @@ const userSchema = new Schema({
 
 /**
  * this @function pre invocation hashes the password of every record being saved to the database 
- * @note the second parametar MUST BE a normal fucntion, in order to set the scope for @this this to points to the respictive record
+ * @note the second parameter MUST BE a normal function, in order to set the scope for @this this to points to the respective record
  */
 userSchema.pre('save', function(next) {
     if (!this.isModified('password')) return next();
     this.password = bcrypt.hashSync(this.password, 8);
     next();
-})
+});
+
 const User = new mongoose.model("User", userSchema);
 
 

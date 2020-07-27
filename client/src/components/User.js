@@ -50,7 +50,7 @@ class User extends React.Component {
       render(){
           return(
             <div style={{color: 'white', backgroundColor: 'rgb(24, 24, 31)', marginTop: '50px'}}>
-                {console.log(this.props)}
+
 
                 {!this.props.isUserLoggedIn? <Redirect to="/"/>:''}
                 <Container className="mb-3">

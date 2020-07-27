@@ -22,12 +22,14 @@ const _signToken = id => jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: p
 exports.hundleSginin = (req, res) => {
     //info of the admin 
     admin = req.body;
-
+    console.log(admin);
     //finds the admin in the database 
     Admin.findAdmin({ username: admin.username }, (err, result) => {
         if (result) {
+            console.log(result)
             //compares the password with the one in the database 
             bcrypt.compare(admin.password, result.password).then(bool => {
+                console.log(bool)
                 if (bool) {
                     //if everything checks-out it will return in the response the info of the admin and the token 
                     const token = _signToken(result._id);

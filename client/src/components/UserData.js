@@ -5,7 +5,6 @@ const UserData = ({movies})=> {
   let rows
   if(movies) {
     rows = movies.map((movie,i)=>{
-      console.log(movie)
       return (<tr key={i} >
         <td>{movie.Title}</td>
         <td>{movie.price}</td>
@@ -16,7 +15,6 @@ const UserData = ({movies})=> {
   }
   return (
     <tbody>
-      {console.log(rows)}
       {rows}
     </tbody>
   )

@@ -16,9 +16,9 @@ class MainPage extends React.Component{
   };
 
   check(date){
-    var array = []
+    var array = [];
     this.props.movies.map((movie, i)=>{
-      const day  =  new Date(movie.playDate).getDate()
+      const day  =  new Date(movie.playDate).getDate();
       if(day === date ){
         array.push({movie, i})
       }  
@@ -26,10 +26,8 @@ class MainPage extends React.Component{
     this.setState({
       moviesforDay : [...array] 
     },()=>{
-      console.log(this.state.moviesforDay)
-    })
 
-   
+    })
   }
  
   
@@ -41,13 +39,13 @@ class MainPage extends React.Component{
         check[movie.movie.Title] = movie
         trailers.push(<Movietrailer key={movie.i} movie={movie.movie} />)
       }
-    })
+    });
     return (
       <div style={{backgroundColor: 'rgb(24, 24, 31)'}}>
       <SlideShow/>
       <Row>
         <Col md="8">
-          <Daysbar pageShow={(date = new Date().getDate()) => {
+          <Daysbar pageShow={ (date = new Date('1/13/2020')) => {
              this.check(date)
           }}/>
           {this.state.moviesforDay.map((movie)=> {

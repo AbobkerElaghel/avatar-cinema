@@ -10,10 +10,10 @@ const adminRoute = require('./routes/adminRoute')
 const dotenv = require('dotenv')
 const path = require('path')
 
-dotenv.config({ path: './config.env' })
+dotenv.config({ path: './config.env' });
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'build')));
 
 
@@ -40,8 +40,8 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 
 // // app.use(express.static(path.join(__dirname, 'client/build')));
-app.post('/signup', authController.signup)
-app.post('/login', authController.login)
+app.post('/signup', authController.signup);
+app.post('/login', authController.login);
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

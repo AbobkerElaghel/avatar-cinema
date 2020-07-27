@@ -10,12 +10,12 @@ const movieDb = require('../db/models/movieModel');
 exports.get4Days = (req, res) => {
     movieDb.getMovies4Days((err, movie) => {
         if (movie) {
-            res.json(movie)
+            res.json(movie);
         } else {
-            res.json({ message: "error reading from the database " })
+            res.json({ message: "error reading from the database " });
         }
-    })
-}
+    });
+};
 
 /**
  * @function deleteMovie delete a specific a movie from the database, @note it does not delete the object it just toggle the availability attribute of the movie object to false 
@@ -27,7 +27,7 @@ exports.deleteMovie = (req, res) => {
     movieDb.deleteMovie({ _id: id }, (err, deleted) => {
         deleted ? res.json({ message: "Movie deleted successfully" }) : res.json(err)
     })
-}
+};
 
 /**
  * @function updateMovie patchs a specific movie in the database, i.e.. update the info of specific movie
@@ -40,7 +40,7 @@ exports.updateMovie = (req, res) => {
         updated ? res.json(updated) : res.json(err)
     })
 
-}
+};
 
 /**
  * @function addMovie adds a movie to the database 
@@ -72,4 +72,4 @@ exports.addMovie = (req, res) => {
                 })
             })
     }).catch(err => console.error(err))
-}
+};
